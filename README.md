@@ -1,6 +1,8 @@
 # Sample AWS Terraform Project
 
-This is a simple **Terraform** project that provisions infrastructure on **AWS**. The project currently includes basic resource provisioning, focusing on foundational AWS services like VPC, EC2, and security groups.
+This is a simple **Terraform** project that provisions infrastructure on **AWS**. The project will iterate over a design that leads to an application running in ECS in containers hosted in EC2 Auto Scaling Group and load balanced.
+
+This is not intended as an "ideal" design, just practicing using different features of AWS with terraform.
 
 ## Progress
 
