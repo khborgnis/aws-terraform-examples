@@ -14,6 +14,7 @@ provider "aws" {
   default_tags {
     tags = {
         Purpose = "Demo"
+        AutoStop = true
     }
   }
 }

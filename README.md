@@ -1,6 +1,6 @@
 # Sample AWS Terraform Project
 
-This is a simple **Terraform** project that provisions infrastructure on **AWS**. The project will iterate over a design that leads to an application running in ECS in containers hosted in EC2 Auto Scaling Group and load balanced.
+This is a simple **Terraform** project that provisions infrastructure on **AWS**. The project will iterate over a design in short bursts that leads to an application hosted by AWS ECS in containers running in an EC2 Auto Scaling Group of Debian instances, load balanced.
 
 This is not intended as an "ideal" design, just practicing using different features of AWS with terraform.
 
@@ -9,8 +9,12 @@ This is not intended as an "ideal" design, just practicing using different featu
 In roughly **one hour of development**, the following AWS resources have been set up using Terraform:
 
 - **VPC**: A custom Virtual Private Cloud (VPC) is created with public and private subnets.
-- **Security Group**: A basic security group allowing inbound SSH and HTTP traffic.
 - **RDS Instance**: A basic RDS MySQL instance, placed in private subnet group.
+
+With roughly **two additional hours of development**, the following AWS resources have been set up using Terraform:
+
+- **EC2**: An ec2 instance running with ECS init and docker installed on it
+- **Security Group**: A basic security group allowing inbound SSH and HTTP(8080) traffic.
 
 ## Structure
 
@@ -52,7 +56,7 @@ This will install the necessary Terraform providers (AWS in this case) and prepa
 Before applying changes, run `terraform plan` to see the resources Terraform will create:
 
 ```bash
-terraform plan
+terraform plan -var "personal_ip=$(curl -s ipinfo.io/ip)"
 ```
 
 ### 4. Apply the Terraform configuration
@@ -60,7 +64,7 @@ terraform plan
 Once you're happy with the plan, apply the configuration:
 
 ```bash
-terraform apply
+terraform apply -var "personal_ip=$(curl -s ipinfo.io/ip)"
 ```
 
 Confirm the action when prompted by typing `yes`.
