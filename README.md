@@ -16,6 +16,12 @@ With roughly **two additional hours of development**, the following AWS resource
 - **EC2**: An ec2 instance running with ECS init and docker installed on it
 - **Security Group**: A basic security group allowing inbound SSH and HTTP(8080) traffic.
 
+With roughly **two additional hours of development**, the following AWS resources have been set up using Terraform:
+
+- **EC2**: A launch template built from the previous ec2 instance configuration, as well as an auto scaling group
+- **ECS**: An ecs service has been configured, with a service and task
+- **Security Group**: A basic security group allowing inbound SSH and HTTP(8080) traffic.
+
 ## Structure
 
 ```plaintext
